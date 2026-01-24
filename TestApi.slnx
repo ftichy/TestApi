@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/TestApi.HelloWord.Server/TestApi.HelloWord.Server.csproj" Id="60da4cae-cfbd-4c2c-83c8-6ee921755947" />
+  <Project Path="tests/TestApi.HelloWord.Server.Tests/TestApi.HelloWord.Server.Tests.csproj" />
+</Solution>

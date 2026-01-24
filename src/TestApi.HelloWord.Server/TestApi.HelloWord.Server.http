@@ -1,0 +1,6 @@
+@TestApi.HelloWord.Server_HostAddress = http://localhost:5208
+
+GET {{TestApi.HelloWord.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
