@@ -167,6 +167,6 @@ jobs:
     - name: Update version variable
       if: github.ref == 'refs/heads/master' && success()
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GH_CICD_TOKEN }}
       run: |
         gh variable set VERSION_PATCH --body "${{ steps.version.outputs.new_patch }}"
