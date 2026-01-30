@@ -43,9 +43,9 @@ jobs:
       
     - name: Build
       run: dotnet build --configuration ${{ inputs.build_configuration || 'Release' }} --no-restore
-      
+          
     - name: Run tests
-      run: dotnet test --configuration ${{ inputs.build_configuration || 'Release' }} --no-build --verbosity normal /p:CollectCoverage=true /p:CoverageFormat=opencover /p:CoverletOutputFormat=opencover
+      run: dotnet test --configuration ${{ inputs.build_configuration || 'Release' }} --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=./coverage
       
     - name: SonarQube - End analysis
       env:
