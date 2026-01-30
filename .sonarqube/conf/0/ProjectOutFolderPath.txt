@@ -1,0 +1,1 @@
+D:\PROJECTS\TestApi\.sonarqube\out\0

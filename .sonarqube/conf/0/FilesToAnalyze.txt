@@ -1,0 +1,12 @@
+﻿D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\Controllers\WeatherForecastController.cs
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\Program.cs
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\WeatherForecast.cs
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\obj\Debug\net10.0\TestApi.HelloWord.Server.GlobalUsings.g.cs
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\obj\Debug\net10.0\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\obj\Debug\net10.0\TestApi.HelloWord.Server.AssemblyInfo.cs
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\obj\Debug\net10.0\TestApi.HelloWord.Server.MvcApplicationPartsAssemblyInfo.cs
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\appsettings.Development.json
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\appsettings.json
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\Dockerfile
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\TestApi.HelloWord.Server.http
+D:\PROJECTS\TestApi\src\TestApi.HelloWord.Server\Properties\launchSettings.json
