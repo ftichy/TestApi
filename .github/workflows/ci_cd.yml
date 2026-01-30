@@ -79,6 +79,7 @@ jobs:
         name: published-app
         path: ./publish
         retention-days: 7
+
   docker-build-and-test:
     runs-on: ubuntu-latest
     needs: build-and-test

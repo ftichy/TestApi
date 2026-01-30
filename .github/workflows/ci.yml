@@ -1,0 +1,75 @@
+name: CI+Sonar Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_configuration:
+        description: 'Build configuration'
+        required: false
+        default: 'Release'
+        type: choice
+        options:
+          - Release
+          - Debug
+     
+
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+    
+    - name: Install SonarScanner for .NET
+      run: dotnet tool install --global dotnet-sonarscanner
+        
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: SonarQube - Begin analysis
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet sonarscanner begin /k:"ftichy_TestApi" /o:"ftichy" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
+      
+    - name: Build
+      run: dotnet build --configuration ${{ inputs.build_configuration || 'Release' }} --no-restore
+      
+    - name: Run tests
+      run: dotnet test --configuration ${{ inputs.build_configuration || 'Release' }} --no-build --verbosity normal /p:CollectCoverage=true /p:CoverageFormat=opencover /p:CoverletOutputFormat=opencover
+      
+    - name: SonarQube - End analysis
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+      
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v4
+      if: success()
+      with:
+        files: '**/coverage.opencover.xml'
+        fail_ci_if_error: false
+        
+    - name: Publish
+      if: success()
+      run: dotnet publish src/TestApi.HelloWord.Server/TestApi.HelloWord.Server.csproj --configuration ${{ inputs.build_configuration || 'Release' }} --output ./publish
+      
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: published-app
+        path: ./publish
+        retention-days: 7
+
+  
