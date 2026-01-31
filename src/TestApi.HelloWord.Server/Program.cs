@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Scalar.AspNetCore;
 
+namespace TestApi.HelloWord.Server;
+
 [ExcludeFromCodeCoverage]
 public partial class Program
 {
