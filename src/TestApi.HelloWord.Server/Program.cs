@@ -4,7 +4,7 @@ using Scalar.AspNetCore;
 namespace TestApi.HelloWord.Server;
 
 [ExcludeFromCodeCoverage]
-public partial class Program
+public static partial class Program
 {
     private static async Task Main(string[] args)
     {
