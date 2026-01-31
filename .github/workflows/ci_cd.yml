@@ -17,11 +17,6 @@ on:
         default: false
         type: boolean
 
-permissions:
-  contents: read
-  packages: write
-  actions: write
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
