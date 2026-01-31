@@ -46,8 +46,7 @@ jobs:
     - name: SonarQube - Begin analysis
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: dotnet sonarscanner begin /k:"ftichy_TestApi" /o:"ftichy" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
+      run: dotnet sonarscanner begin /k:"ftichy_TestApi" /o:"ftichy" /d:sonar.token="${SONAR_TOKEN}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
       
     - name: Build
       run: dotnet build --configuration ${{ inputs.build_configuration || 'Release' }} --no-restore
@@ -58,9 +57,8 @@ jobs:
     - name: SonarQube - End analysis
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-      
+      run: dotnet sonarscanner end /d:sonar.token="${SONAR_TOKEN}"
+
     - name: Upload coverage reports
       uses: codecov/codecov-action@v4
       if: success()
