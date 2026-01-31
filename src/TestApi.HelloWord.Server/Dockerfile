@@ -16,12 +16,12 @@ COPY ["src/TestApi.HelloWord.Server/TestApi.HelloWord.Server.csproj", "src/TestA
 RUN dotnet restore "./src/TestApi.HelloWord.Server/TestApi.HelloWord.Server.csproj"
 COPY . .
 WORKDIR "/src/src/TestApi.HelloWord.Server"
-RUN dotnet build "./TestApi.HelloWord.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./TestApi.HelloWord.Server.csproj" -c "$BUILD_CONFIGURATION" -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./TestApi.HelloWord.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./TestApi.HelloWord.Server.csproj" -c "$BUILD_CONFIGURATION" -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final

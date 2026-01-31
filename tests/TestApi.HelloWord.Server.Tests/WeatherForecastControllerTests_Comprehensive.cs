@@ -100,7 +100,7 @@ namespace TestApi.HelloWord.Server.Tests
             var result = _controller.Get();
 
             // Assert
-            Assert.IsAssignableFrom<IEnumerable<WeatherForecast>>(result);
+            Assert.IsType<IEnumerable<WeatherForecast>>(result, exactMatch: false);
         }
 
         [Fact]

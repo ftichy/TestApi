@@ -29,7 +29,4 @@ app.MapControllers();
 // Health check endpoints
 app.MapHealthChecks("/health");
 
-app.Run();
-
-// Make Program class accessible to tests
-public partial class Program { }
+await app.RunAsync();
