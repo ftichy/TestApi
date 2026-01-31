@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApi.HelloWord.Server", "src\TestApi.HelloWord.Server\TestApi.HelloWord.Server.csproj", "{5C241AD0-2880-B468-951E-3F8968519F91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApi.HelloWord.Server.Tests", "tests\TestApi.HelloWord.Server.Tests\TestApi.HelloWord.Server.Tests.csproj", "{446B2BBA-99F1-DBE4-0961-BC521227472B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{B50C2EB7-103B-47E5-AAA6-3AF670F9A141}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B50C2EB7-103B-47E5-AAA6-3AF670F9A141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B50C2EB7-103B-47E5-AAA6-3AF670F9A141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C241AD0-2880-B468-951E-3F8968519F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C241AD0-2880-B468-951E-3F8968519F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C241AD0-2880-B468-951E-3F8968519F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C241AD0-2880-B468-951E-3F8968519F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{446B2BBA-99F1-DBE4-0961-BC521227472B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{446B2BBA-99F1-DBE4-0961-BC521227472B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{446B2BBA-99F1-DBE4-0961-BC521227472B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{446B2BBA-99F1-DBE4-0961-BC521227472B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
