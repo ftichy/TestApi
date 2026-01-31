@@ -59,13 +59,6 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: dotnet sonarscanner end /d:sonar.token="${SONAR_TOKEN}"
 
-    - name: Upload coverage reports
-      uses: codecov/codecov-action@v4
-      if: success()
-      with:
-        files: '**/coverage.opencover.xml'
-        fail_ci_if_error: false
-        
     - name: Publish
       if: success()
       run: dotnet publish src/TestApi.HelloWord.Server/TestApi.HelloWord.Server.csproj --configuration ${{ inputs.build_configuration || 'Release' }} --output ./publish
